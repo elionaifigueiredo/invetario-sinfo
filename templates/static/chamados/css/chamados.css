@@ -1,0 +1,83 @@
+ main .principal .container .formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+main .principal .container .formulario input {
+    width: 400px;
+    height: 50px;
+}
+
+main .principal .container .formulario label {
+   color: darkgreen;
+   font-size: 20px;
+   font-weight: bolder;
+}
+
+.wrapp_logar_index{
+    padding: 10px;
+    text-align: left;
+    background: rgb(1, 132, 255);
+    width:100%; 
+    height: 35px;
+    font-size: 16px
+}
+.wrapp{
+   /* margin-top: 5px; */
+    padding: 10px;
+    text-align: center;
+    background: rgb(1, 132, 255);
+    width:100%; 
+    height: 35px;
+}
+
+
+.wrapp a{
+    text-decoration: none;
+    color: rgb(2, 2, 2);
+    font-size: 16px;
+}
+.wrapp a:hover{
+    background-color:#021A1C;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.menu_home_sair{
+    display: flex;
+    justify-content: space-between;
+}
+.pesquisar{
+    padding: 10px;
+    text-align: right;
+}
+.tabela{
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    color: white;
+    background-color: #021A1C;
+    text-align: center;
+    font-size: 16px;
+}
+table{
+    width: 100%;
+}
+.tabela th{
+    font-weight: bold;
+    font-size: 16px;
+    background-color: antiquewhite;
+    color: black;
+}
+
+.tabela td{
+    background-color: gray;
+    font-size: 16px;
+}
+
+.isDisabled {
+    pointer-events: none;
+  }

@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block 'head' %}
+
+
+{% endblock %} 
+
+{% block 'title' %} Cadastro de Usuário{%endblock %} 
+{% block 'titulo' %} Create a New User{% endblock %} 
+
+{% block 'body' %}
+
+<main>
+    {% if messages %} {% for message in messages %}
+        <div class="alert {{message.tags}}">{{message}}</div>
+    {% endfor %} {% endif %}
+    <div class="principal">
+        <div class="container">
+           
+                
+            <form action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+
+                
+                    <p>Favor Seguir Padrão <br> Nome de Guerra <br>
+                        com as Iniciais.</p>
+                    <br>
+                  
+                <input
+                required 
+                name="username"
+                placeholder="usuário"
+                type="text">
+
+                <br>
+                <br>
+               <input
+               required
+                name="email"
+                placeholder="Email"
+                maxlength="35"
+                type="email">
+
+                <br>
+                <br>
+                <input
+                required
+                 name="senha"
+                 placeholder="Senha"
+                 maxlength="8"
+                 type="password">
+ 
+                 <br>
+                 <br>
+                <input type="submit" value="Cadastrar">
+                <br>
+                <br>
+                <a href="{% url 'logar' %}">
+                <p>cancelar.</p>
+                </a>
+        
+            </form>
+        </div>
+    </div>
+</main>
+
+
+  
+
+{% endblock %}

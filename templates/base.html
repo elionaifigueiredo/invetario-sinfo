@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% block 'head'%}
+    {% endblock %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'autenticacao/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'autenticacao/css/responsivo.css' %}" />
+    
+    <title>{% block 'title' %} {% endblock %}</title>
+
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6254befcb0d10b6f3e6d0777/1g0dgk3ei';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    
+</head>
+<body>
+
+   
+    <header>
+        <div class="container">
+            <h2>{% block 'titulo' %}{% endblock %}</h2>
+            <nav>
+                <a href="#">V.0.0.1
+                <!-- <img src="{% static 'autenticacao/img/python.png'%}" alt="logo" width="30" height="30"> -->
+            </a>
+            </nav>
+        </div>
+    </header>
+
+   
+    {% block 'body' %}
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+
+{% endblock %} 
+
+{% block 'title' %}Listagem{%endblock %} 
+{% block 'titulo' %} Lista dos Equipamentos de Informática {% endblock %} 
+
+{% block 'body' %}
+
+
+<div class="menu_home_sair">
+    <div class="wrapp">
+        <a href="{% url 'home'%}">
+            Home
+        </a> 
+    </div>
+    <div class="wrapp">
+        <a href="{% url 'cad_inventario'%}">
+        Cadastrar Equipamentos
+        </a> 
+    </div>
+    <div class="wrapp">
+        <a href="{% url 'sair'%}">
+            Sair
+        </a> 
+    </div>
+</div>
+<div class="pesquisar">
+    <form method="get">     
+        <input type="text" placeholder="Digite sua Pesquisa..." name="search" id="search">
+        <button type="submit" >Pesquisar</button>
+    </form>
+    
+
+<div>
+<div class="tabela">
+    
+    <table border="1">
+        
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Item</th>
+                <th>Modelo</th>
+                <th>Série</th>
+                <th>BMP</th>
+                <th>Seção da Carga</th>            
+                <th>Descrição</th>           
+                <th>Status</th>           
+                <th>Data</th>  
+                <th>Imprimir</th>           
+                <th>Ação</th>  
+            </tr>
+        </thead>
+        <tbody>
+        {% if user.is_authenticated %}
+            {% for lista in lista_material %}
+                <tr>
+                    <td>{{lista.id}}</td>
+                    <td>{{lista.itens}}</td>
+                    <td>{{lista.modelo}}</td>
+                    <td>{{lista.serie}}</td>
+                    <td>{{lista.bmp}}</td>
+                    <td>{{lista.secao_carga}}</td>
+                    <td>{{lista.descricao}}</td>
+                    <td>{{lista.status}}</td>
+                    <td>{{lista.data}}</td>
+                    <td><a href="">Baixar</a></td>
+                    <td>
+                        <a href="{% url 'edit_inventario' lista.id %}">Editar</a>
+                         |
+                        <a href="{% url 'delete' lista.id %}">delete</a>
+                        
+                    </td>
+                </tr>
+            
+            {% endfor %}
+
+        {% endif %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+
+

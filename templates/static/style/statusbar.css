@@ -1,0 +1,29 @@
+
+.wrapp{
+    /* margin-top: 5px; */
+     padding: 10px;
+     text-align: center;
+     background: rgb(1, 132, 255);
+     width:100%; 
+     height: 35px;
+ }
+ 
+ 
+ .wrapp a{
+     text-decoration: none;
+     color: rgb(2, 2, 2);
+     font-size: 16px;
+ }
+ .wrapp a:hover{
+     background-color:#021A1C;
+     padding: 8px;
+     color: white;
+     border-radius: 5px;
+ }
+ 
+ 
+ .menu_home_sair{
+     display: flex;
+     justify-content: space-between;
+ }
+ 

@@ -1,0 +1,29 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+
+{% endblock %} 
+
+{% block 'title' %}Deletando{%endblock %} 
+{% block 'titulo' %} Delete {% endblock %} 
+
+{% block 'body' %}
+<div style="text-align: center;">
+    <form action="" method='POST'>  
+        {%csrf_token%}
+        <br>
+        <h1 style="color: red;">Deletar o Material?</h1><br>
+        <h3>Item: {{usuario.itens}} - BMP: {{usuario.bmp}} - Série: {{usuario.serie}} Seção: {{usuario.secao_carga}} </h3><br>
+        <input type="submit" value="SIM" style="padding: 10px; width: 100px; text-align: center;"> <br>
+        
+    </form>
+    <br>
+    <button style="padding: 10px; width: 100px; text-align: center;">
+        <a href="{% url 'lista_material' %}" style="text-decoration: none; pointer-events: visible;">NÃO</a>
+    </button>
+
+</div>
+
+{% endblock %}

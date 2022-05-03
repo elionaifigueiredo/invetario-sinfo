@@ -1,0 +1,17 @@
+main .principal .container .formulario .alinhamento{
+    /* display: flex; */
+    padding: 5px;
+    
+}
+main .principal .container .formulario input{
+    background-color: aliceblue;
+    color: black;
+}
+
+.wrapp_menu{
+    padding: 10px;
+    text-align: center;
+    background: rgb(1, 132, 255);
+    width:100%; 
+    height: 35px;
+}

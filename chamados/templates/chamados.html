@@ -1,0 +1,62 @@
+{% extends 'base.html '%} 
+{% load static %} 
+{% block 'head' %} 
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+
+{% endblock %} 
+{%block 'title' %}Chamados{%endblock %} 
+{% block 'titulo' %} Solicitação
+{%endblock %} {% block 'body' %}
+
+<div class="menu_home_sair">
+<div class="wrapp">
+    <a href="{% url 'home'%}">
+        Home
+    </a> 
+</div>
+
+<div class="wrapp">
+    <a href="{% url 'sair'%}">Sair</a>
+</div>
+</div>
+<hr>
+<main>
+    {% if messages %} 
+        {% for message in messages %}
+            <div class="alert {{message.tags}}">{{message}}</div>
+        {% endfor %} 
+    {% endif %}
+    <div class="principal">
+
+        <div class="container">
+
+            <form action="{% url 'chamados' %}" method="POST" class="formulario">
+            {% csrf_token %}
+                 
+                <label>Bem Vindo: {{ user.get_username }}</label><br>
+                <!-- <label for="militar">Solicitante:</label> -->
+                <input required name="militar"  type="text"  placeholder="Nome de Guerra com as inicias.." />
+                
+                <!-- <label for="contato">Contato:</label> -->
+                <input required name="contato" type="number" placeholder="Telefone" />
+
+                <!-- <input type="datetime-local" name="data_solicitacao" value="{{ get_data_input_evento}}"> -->
+               
+                <!-- <label for="assunto">Seção:</label> -->
+                <input required name="assunto" type="text" placeholder="Seção"  />
+                                   
+                <label for="descricao">Favor Descreva o problema:</label>
+
+                <textarea name="descricao" id="descricao" cols="30" rows="5"></textarea>
+
+                <!-- <label for="solicitante">Solicitante:</label> -->
+                <input required name="solicitante" type="hidden" value="elionaiesf@fab.mil.br" />
+                <input type="submit" value="Enviar" />
+
+                              
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html '%} 
+{% load static %} 
+{% block 'head' %} 
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+{% endblock %} 
+{%block 'title' %}Chamados{%endblock %} 
+{% block 'titulo' %} Solicitação
+{%endblock %} {% block 'body' %}
+
+<div class="menu_home_sair">
+    <div class="wrapp">
+        <a href="{% url 'home'%}">
+           Home
+        </a> 
+    </div>
+
+    <div class="wrapp">
+        <a href="{% url 'sair'%}">Sair</a>
+    </div>
+</div>
+
+<hr>
+<main>
+    {% if messages %} 
+        {% for message in messages %}
+            <div class="alert {{message.tags}}">{{message}}</div>
+        {% endfor %} 
+    {% endif %}
+    <div class="principal">
+        <div class="container">
+            <form action="{% url 'cad_inventario' %}" method="POST" class="formulario">
+            {% csrf_token %}                
+                <div class="alinhamento">
+                     <br>
+                    <label for="itens">Itens:</label> 
+                    
+                    <select name="itens" style="width: 100%; height: 30px; background-color: #021A1C; color: gray;">
+                        <option value="-">-</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Computador">Computador</option>
+                        <option value="Nobreak">Nobreak</option>
+                        <option value="Estabilizador">Estabilizador</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="alinhamento">
+                    <label for="modelo">Modelo:</label>                    
+                    <select name="modelo" style="width: 100%; height: 30px; background-color: #021A1C; color: gray;">
+                        <option value="-">-</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="OAC">OAC</option>
+                        <option value="HP">HP</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="alinhamento">
+                    <label for="status">Status:</label>                    
+                    <select name="status" style="width: 100%; height: 30px; background-color: #021A1C; color: gray;">
+                        <option value="-">-</option>
+                        <option value="Defeito">Defeito</option>
+                        <option value="Funcionando">Funcionando</option>
+                        <option value="Descarregar">Descarregar</option>
+                        <option value="Substituição">Substituição</option>
+                    </select>
+                </div>
+
+                <!-- <input type="datetime-local" name="data_solicitacao" value="{{ get_data_input_evento}}"> -->
+                <div class="alinhamento">
+               
+                <!-- <label for="serie">Série:</label> -->
+                <input type="text" name="serie" placeholder="Série" value="{{material.serie}}"/>
+                </div>
+
+                <div class="alinhamento">
+                <!-- <label for="bmp">BMP:</label> -->
+                <input type="text" name="bmp" placeholder="BMP"/>
+                </div>
+
+                <div class="alinhamento">
+                <!-- <label for="secao_carga">Seção:</label> -->
+                <input required name="secao_carga" type="text" placeholder="SEÇÃO"/>
+               </div>
+
+               <label for="status">Descrição do Equipamento:</label>                    
+               
+               <div class="alinhamento">
+                <textarea name="descricao" id="descricao" cols="30" rows="3" style="background-color: #021A1C; color: white; font-size: 16px;"></textarea>
+                </div>
+
+             
+
+
+               <div class="alinhamento">
+                <!-- <label for="data">Data</label> -->
+                <input required name="data" type="datetime-local"/>
+                </div>
+
+                <br>
+                <input type="submit" value="Enviar" style="width: 100%; background-color: antiquewhite; color: black;" />
+                
+
+
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

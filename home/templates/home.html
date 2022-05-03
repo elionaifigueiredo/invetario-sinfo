@@ -1,0 +1,103 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+{% endblock %} 
+
+{% block 'title' %}Painel de Controle {%endblock %} 
+{% block 'titulo' %} Dashboard {% endblock %} 
+
+{% block 'body' %}
+
+    <div class="menu_home_sair">
+    
+        <div class="wrapp">
+            <a href="{% url 'chamados'%}">
+            Solicitar Informática
+            </a> 
+        </div>   
+        <div class="wrapp">
+            <a href="{% url 'registrar'%}">
+            Registro
+            </a> 
+        </div>   
+    
+        <div class="wrapp">
+            <a href="{% url 'lista_material'%}">
+                Lista de Equipamentos
+            </a> 
+        </div>
+        
+        <div class="wrapp">
+            <a href="{% url 'sair'%}">Sair</a>
+        </div>
+
+    </div>
+    <hr>
+    <div class="pesquisar">        
+        <input type="text" placeholder="Digite sua Pesquisa...">
+        <button type="submit">Pesquisar</button>
+    </div>
+Ola: {{msg}}
+
+    <div class="tabela">
+        <table border="1" >
+            <thead>
+                <tr>
+                    <th>Militar/Usuário</th>
+                    <th>Contato</th>
+                    <th>Seção</th>
+                    <th>Descrição do Problema</th>
+                    <th>Data e Hora</th>            
+                    <th>Status</th>           
+                    <th>Baixar</th>           
+                </tr>
+            </thead>
+            <tbody>
+            {% if user.is_authenticated %}
+                {% for lista in lista_chamados %}
+                    <tr>
+                        <td>{{lista.militar}}</td>
+                        <td>{{lista.contato}}</td>
+                        <td>{{lista.subject}}</td>
+                        <td>{{lista.message}}</td>
+                        <td>{{lista.date}}</td> 
+                        <td>
+                            
+                                        
+                            <div style="background-color: rgb(255, 196, 0)">
+                                {% if lista.status.status == "P" %}
+                                    Processando
+                                {% endif %}
+                            </div>             
+                
+                            <div style="background-color: rgb(51, 255, 0)">
+                                {% if lista.status.status == "R" %}
+                                    Resolvido
+                                {% endif %}
+                            </div>             
+                
+                            <div style="background-color: rgb(235, 0, 0)">
+                                {% if lista.status.status == "C" %}
+                                    Cancelado
+                                {% endif %}
+                            </div>             
+                
+                        </td>
+
+                        <td>                                            
+                            {% if lista.status.status == "P" %}
+                                <a href="{% url 'cancelar' lista.id %}" >Cancelar</a>
+                            {% else %}
+                                <a href="" class="isDisabled">Cancelar</a>
+                            {% endif %}
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

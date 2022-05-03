@@ -1,0 +1,90 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --verde:#021A1C;
+    --cinza:#D3D9DB;
+    --branco:#FFFFFF;
+}
+
+body{
+    background: var(--cinza);
+}
+
+header .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--verde);
+}
+
+header .logo{
+    margin-left: 5px;
+    color: var(--branco);
+    font-family: 'Arial Black', Times;
+    font-size: 40px;
+}
+header nav a {
+    text-decoration: none;
+    color: #AAA;
+    margin-right: 10px;
+}
+
+header nav a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.container{
+    padding: 20px;
+
+}
+.container h2{
+    color: white;
+}
+
+main .principal {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+main .principal .container input{
+    /* display: flex; */
+    background: var(--verde);
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+main .principal .container .btn_logar{
+    background: var(--verde);
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+
+main .principal .container p{
+    text-align: center;
+    font-size: 16px;
+}
+main .principal .container ::placeholder{
+    color: gray;
+}
+
+main .alert{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(252, 0, 0);
+    font-size: 25px;
+}
+
+

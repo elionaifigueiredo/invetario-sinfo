@@ -1,0 +1,23 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+{% endblock %} 
+
+{% block 'title' %}Index{%endblock %} 
+{% block 'titulo' %} Início {% endblock %} 
+
+{% block 'body' %}
+
+    <div class="menu_home_sair">        
+        <div class="wrapp_logar_index">
+            <a href="{% url 'logar'%}">
+            Logar
+            </a> 
+        </div>
+    </div>
+    {% if chart %}
+        <img src="data:image/png;base64, {{chart|safe}}" alt="">
+    {% endif %}
+{% endblock %}

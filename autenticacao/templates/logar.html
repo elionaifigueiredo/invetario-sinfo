@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block 'head' %}
+
+
+{% endblock %} 
+
+{% block 'title' %} Página para Logar{%endblock %} 
+{% block 'titulo' %} Logar{% endblock %} 
+
+{% block 'body' %}
+
+
+<main>
+    {% if messages %} {% for message in messages %}
+        <div class="alert {{message.tags}}">{{message}}</div>
+    {% endfor %} {% endif %}
+    <div class="principal">
+        <div class="container">
+            <p class="descricao"></p>
+           
+            <form action="{% url 'logar' %}" method="POST">
+                {% csrf_token %}
+
+                <input
+                required 
+                name="username"
+                placeholder="usuário"
+                type="text">
+
+                <br>
+                <br>
+               <input
+               required
+                name="senha"
+                placeholder="Senha"
+                maxlength="8"
+                type="password">
+
+                <br>
+                <br>
+                <input type="submit" value="logar" class="btn_logar">
+                <br>
+                <br>
+                <a href="{% url 'cadastro' %}">
+                <p>create a new user.</p>
+            </a>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+  
+
+{% endblock %}

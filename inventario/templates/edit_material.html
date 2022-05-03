@@ -1,0 +1,44 @@
+{% extends 'base.html '%} 
+{% load static %} 
+{% block 'head' %} 
+<link rel="stylesheet" href="{% static 'chamados/css/chamados.css' %}" />
+{% endblock %} 
+{%block 'title' %}Chamados{%endblock %} 
+{% block 'titulo' %} Solicitação
+{%endblock %} {% block 'body' %}
+
+<div class="menu_home_sair">
+    <div class="wrapp">
+        <a href="{% url 'home'%}">
+           Home
+        </a> 
+    </div>
+
+    <div class="wrapp">
+        <a href="{% url 'sair'%}">Sair</a>
+    </div>
+</div>
+
+<hr>
+<main>
+    {% if messages %} 
+        {% for message in messages %}
+            <div class="alert {{message.tags}}">{{message}}</div>
+        {% endfor %} 
+    {% endif %}
+
+    <div class="principal">
+        <div class="container">
+            <form action="{% url 'edit_inventario' %}" method="POST" class="formulario">
+            {% csrf_token %}                
+
+                <div class="alinhamento">
+                    <input type="text" name="itens" placeholder="Itens" />
+                </div>
+                <input type="submit" value="Enviar" style="width: 100%; background-color: antiquewhite; color: black;" />
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
